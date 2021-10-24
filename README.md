@@ -40,3 +40,6 @@ An API token can be obtained [here](https://rep4rep.com/user/settings/).
 
 ## Support
 https://discord.com/invite/S8hsc4MCHf
+
+## Credits
+rep4rep [(original repo)](https://github.com/rep4rep/rep4rep-bot)
