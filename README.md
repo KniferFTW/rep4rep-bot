@@ -7,19 +7,19 @@ Using the [rep4rep](https://rep4rep.com/) public API.
 
 ## Steam Comment bot setup
 
-1. clone the repository
+1. Clone the repository
 
 ```bash
-git clone https://github.com/rep4rep/rep4rep-bot.git
+git clone https://github.com/KniferFTW/rep4rep-bot.git
 ```
 
-2. navigate into dir 
+2. Navigate into dir 
 
 ```bash
 cd rep4rep-bot
 ```
 
-3. install packages
+3. Install packages
 
 ```bash
 npm install
