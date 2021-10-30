@@ -13,7 +13,6 @@ moment().format();
 const { version } = require('./package.json');
 
 function updateChecker() {
-    try {
     fetch('https://raw.githubusercontent.com/KniferFTW/rep4rep-bot/main/package.json', {
         method: 'GET'
     })
@@ -23,6 +22,7 @@ function updateChecker() {
         if(json.version > version) {
             console.log(`\n[UPDATE] New update available. Current version: v${version}, newest version: v${json.version}.`.bold.yellow)
             console.log('[UPDATE] Get the latest version here: https://github.com/KniferFTW/rep4rep-bot'.bold.yellow)
+        }
     })
 }
 
