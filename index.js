@@ -10,11 +10,26 @@ const fetch = require('node-fetch');
 var moment = require('moment');
 moment().format();
 
+const { version } = require('./package.json');
+
+function updateChecker() {
+    try {
+    fetch('https://raw.githubusercontent.com/KniferFTW/rep4rep-bot/main/package.json', {
+        method: 'GET'
+    })
+
+    .then(res => res.json())
+    .then(json => {
+        if(json.version > version) {
+            console.log(`\n[UPDATE] New update available. Current version: v${version}, newest version: v${json.version}.`.bold.yellow)
+            console.log('[UPDATE] Get the latest version here: https://github.com/KniferFTW/rep4rep-bot'.bold.yellow)
+    })
+}
+
 var rl = readLine.createInterface({
 	"input": process.stdin,
 	"output": process.stdout
 });
-
 
 let db = new sqlite3.Database('./steamprofiles.db', (err) => {
     if (err) {
@@ -55,6 +70,7 @@ function printHeader(headTitle = 'Home') {
 
 function homeMenu(err = false) {
     printHeader();
+    setTimeout(updateChecker, 1500);
     console.log('1) Auto Run');
     console.log('2) Manage Steam Accounts');
     console.log('CTRL + C to exit at any time.'.gray);
@@ -186,7 +202,7 @@ async function autoRun() {
         let hours = moment().diff(moment(steamProfile.last_comment), 'hours');
         if (hours >= 24 || !steamProfile.last_comment) {
             console.log('attempting to leave comments from: ' + steamProfile.username);
-            console.log('[ 10 sec delay between each comment ]'.bold.cyan);
+            console.log('[ 15 sec delay between each comment ]'.bold.cyan);
 
             community.setCookies(JSON.parse(steamProfile.cookies));
             community.oAuthToken = steamProfile.token;
@@ -247,7 +263,7 @@ async function autoRun() {
                         console.log(data.info ?? data.success);
                     }
                 });
-                await sleep(10000);
+                await sleep(15000);
             }
         } else {
             console.log(steamProfile.username.bold.cyan + ' not ready yet. Try again in: ' + (24-hours).toString().bold.red + ' hours.');
