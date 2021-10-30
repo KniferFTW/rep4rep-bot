@@ -23,7 +23,9 @@ function updateChecker() {
             console.log(`\n[UPDATE] New update available. Current version: v${version}, newest version: v${json.version}.`.bold.yellow)
             console.log('[UPDATE] Get the latest version here: https://github.com/KniferFTW/rep4rep-bot'.bold.yellow)
         }
-    })
+    }).catch(error => {
+            console.log('\n[UPDATE] Unable to check for new updates!'.bold.red)
+    });
 }
 
 var rl = readLine.createInterface({

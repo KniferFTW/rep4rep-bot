@@ -1,6 +1,6 @@
 {
   "name": "rep4rep-bot",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Rep4Rep.com Automatic Comment Bot.",
   "main": "index.js",
   "dependencies": {
