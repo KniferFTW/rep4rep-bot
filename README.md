@@ -4,6 +4,8 @@ Automatic Steam Comment bot example for [rep4rep](https://rep4rep.com/).
 
 Using the [rep4rep](https://rep4rep.com/) public API.
 
+[Tutorial Video](https://www.youtube.com/watch?v=zRFazp0DvF0)
+
 
 ## Steam Comment bot setup
 
